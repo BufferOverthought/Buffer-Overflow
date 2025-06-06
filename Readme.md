@@ -6,7 +6,7 @@ This project simulates a realistic buffer overflow vulnerability in a web applic
 
 ## How it works
 
-- Access the application via your browser (`http://localhost:5000/`) once the container is running.
+- Access the application via your browser (`http://localhost:5001/`) once the container is running.
 - The web form posts the input to the backend, which passes it directly to a vulnerable C function (`check_input`).
 - Using the provided `fuzzer.py` and `wordlist.txt`, you will discover which input payload causes the application to crash (i.e., returns HTTP 500 Internal Server Error).
 - The browser **never** reveals the flag or shell — only a crash.
@@ -26,14 +26,12 @@ This project simulates a realistic buffer overflow vulnerability in a web applic
 2. Run the Docker container:
 
     ```bash
-    docker run --rm -it -p 5000:5000 buffer-overflow-lab
+    docker run --rm -it -p 5001:5000 buffer-overflow-lab
     ```
-
-    > If port 5000 is busy, you can use another, e.g. `-p 5001:5000` and access the lab at [http://localhost:5001/](http://localhost:5001/)
 
 3. Access the lab in your browser:
 
-    - Go to [http://localhost:5000/](http://localhost:5000/) or your chosen port.
+    - Go to [http://localhost:5001/](http://localhost:5001/) or your chosen port.
 
 4. Run the fuzzer:
 
