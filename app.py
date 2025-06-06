@@ -12,8 +12,12 @@ def index():
     result = ""
     if request.method == 'POST':
         user_input = request.form['username']
-        res = lib.check_input(user_input.encode('utf-8'))
-        result = res.decode()
+        try:
+            res = lib.check_input(user_input.encode('utf-8'))
+            result = res.decode()
+        except Exception:
+            # If C code crashes, show a real error 500
+            return "Internal Server Error", 500
     return render_template('index.html', result=result)
 
 if __name__ == '__main__':
