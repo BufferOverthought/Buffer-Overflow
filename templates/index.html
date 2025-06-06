@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buffer Overflow Visual Lab</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Buffer Overflow Visual Lab</h1>
+        <p>
+            This demo simulates a real buffer overflow in a web application backend.<br>
+            Enter your username and try to break the system!
+        </p>
+        <form method="POST">
+            <input type="text" name="username" placeholder="Username" required>
+            <button type="submit">Submit</button>
+        </form>
+        {% if result %}
+            <div class="result">{{ result }}</div>
+        {% endif %}
+        <div class="disclaimer">
+            <small>
+                For educational use only. Do not use real credentials.
+            </small>
+        </div>
+    </div>
+</body>
+</html>
