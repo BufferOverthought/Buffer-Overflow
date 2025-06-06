@@ -17,7 +17,7 @@
             <button type="submit">Submit</button>
         </form>
         {% if result %}
-            <div class="result">{{ result }}</div>
+            <div class="result" style="display:none">{{ result }}</div>
         {% endif %}
         <div class="disclaimer">
             <small>
@@ -25,5 +25,15 @@
             </small>
         </div>
     </div>
+    <script>
+        // If result is present, show the funny popup
+        {% if result %}
+        window.onload = function() {
+            setTimeout(function() {
+                alert("💻 Nice try, hacker! But that's not enough for a buffer overflow 😎");
+            }, 100);
+        }
+        {% endif %}
+    </script>
 </body>
 </html>
